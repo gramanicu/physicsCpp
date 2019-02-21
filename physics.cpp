@@ -7,6 +7,7 @@ void testFunction() {
     v->setX(12);
     v->setY(10);
     std::cout << v->getX() << " " << v->getY() << std::endl;
+    delete v;
     Vector v1;
     v1.setX(13);
     v1.setY(11);
@@ -16,6 +17,7 @@ void testFunction() {
     std::cout << v2.getX() << " " << v2.getY() << std::endl;
     Vector *v3 = new Vector(31, 24);
     std::cout << v3->getX() << " " << v3->getY() << std::endl;
+    delete v3;
 }
 
 int main() { 
