@@ -3,7 +3,7 @@
 CC = g++
 CFLAGS = -pedantic -Wextra -Wall
 EXE = physics
-SOURCE = physics.cpp
+SOURCES = physics.cpp vectors.cpp
 
 # Archive settings
 ANAME = PhysicsCpp.zip
@@ -11,7 +11,7 @@ ACONTENTS = README Makefile *.c *.h
 AFLAGS = -FSr 
 
 # Compile the program
-build: $(SOURCE)
+build: $(SOURCES)
 		$(CC) -o $(EXE) $^ $(CFLAGS)
 
 # Build & run
