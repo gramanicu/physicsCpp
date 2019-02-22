@@ -3,6 +3,7 @@
 #include "./vectors.h"
 
 void testFunction() {
+    double distance(Point p);
     Vector *v = new Vector();
     v->setX(12);
     v->setY(10);
@@ -20,7 +21,7 @@ void testFunction() {
     delete v3;
 }
 
-int main() { 
+int main() {
     testFunction();
-    return 0; 
+    return 0;
 }

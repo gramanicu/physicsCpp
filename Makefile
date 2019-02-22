@@ -3,12 +3,16 @@
 CC = g++
 CFLAGS = -pedantic -Wextra -Wall
 EXE = physics
-SOURCES = physics.cpp vectors.cpp
+SOURCES = physics.cpp points.cpp vectors.cpp
 
 # Archive settings
 ANAME = PhysicsCpp.zip
 ACONTENTS = README Makefile *.c *.h
 AFLAGS = -FSr 
+
+# Coding style settings
+
+CSFILES = *.cpp *.h
 
 # Compile the program
 build: $(SOURCES)
@@ -33,7 +37,7 @@ clean:
 # Styles the code, with google's standard. The only difference is
 # that it uses 4 spaces instead of two for "tabs"
 beauty: 
-	clang-format -i -style=file *.cpp
+	clang-format -i -style=file $(CSFILES)
 
 .PHONY:beauty
 
