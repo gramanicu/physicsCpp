@@ -2,7 +2,7 @@
 #ifndef VECTORS2D_H
 #define VECTORS2D_H
 
-#include "./points.h"
+#include "./points2D.h"
 #include <math.h>
 
 template <typename coordinate>
