@@ -1,8 +1,6 @@
 // Copyright Grama Nicolae 2019
 #include "./PVector.h"
 
-#include <iostream>
-
 PVector::PVector() {
     this->x = double(0);
     this->y = double(0);
