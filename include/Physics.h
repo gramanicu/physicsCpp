@@ -2,8 +2,7 @@
 #ifndef PHYSICS_H
 #define PHYSICS_H
 
-#include "./Point.h"
-#include "./PVector.h"
-
+#include "./Physics/PVector.h"
+#include "./Physics/Point.h"
 
 #endif

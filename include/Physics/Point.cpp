@@ -45,5 +45,6 @@ double Point::getY() { return y; }
 double Point::getZ() { return z; }
 
 double Point::distance(Point p) {
-    return sqrt(pow(p.x - this->x, 2) + pow(p.y - this->y, 2) + pow(p.z - this->z, 2));
+    return sqrt(pow(p.x - this->x, 2) + pow(p.y - this->y, 2) +
+                pow(p.z - this->z, 2));
 }

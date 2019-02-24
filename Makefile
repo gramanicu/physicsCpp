@@ -3,11 +3,11 @@
 CC = g++
 CFLAGS = -pedantic -Wextra -Wall
 EXE = physics
-SOURCES = physics.cpp Point.cpp PVector.cpp
+SOURCES = src/physics.cpp include/Physics/Point.cpp include/Physics/PVector.cpp
 
 # Archive settings
-ANAME = PhysicsCpp.zip
-ACONTENTS = README Makefile *.c *.h
+ANAME = Physics.zip
+ACONTENTS = *
 AFLAGS = -FSr 
 
 # Coding style settings
@@ -22,17 +22,18 @@ build: $(SOURCES)
 run: build
 		./$(EXE)
 
-# Archive the files
-pack:
-	zip $(AFLAGS) $(ANAME) $(ACONTENTS) 
-	
-.PHONY:pack
-
 # Delete the executable
 clean:
 	rm -f $(EXE)
+	rm -f $(ANAME)
 
 .PHONY:clean
+
+# Archive the files
+pack: clean
+	zip $(AFLAGS) $(ANAME) $(ACONTENTS) 
+	
+.PHONY:pack
 
 # Styles the code, with google's standard. The only difference is
 # that it uses 4 spaces instead of two for "tabs"

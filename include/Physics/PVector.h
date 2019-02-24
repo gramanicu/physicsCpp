@@ -2,8 +2,8 @@
 #ifndef PVECTOR_H
 #define PVECTORS_H
 
-#include "./Point.h"
 #include <math.h>
+#include "./Point.h"
 
 class PVector : public Point {
    public:
@@ -20,9 +20,15 @@ class PVector : public Point {
     double magnitude();
     PVector normalize();
     // PVector limit(double max); - limit the magnitude of a vector
-    double heading();
-    // double angleWith(PVector v);-find the angle between two vectors(rads)
-    double dot(PVector v);    // dot product
+    double headingXY();
+    double headingXZ();
+    double headingYZ();
+    double headingDegXY();
+    double headingDegXZ();
+    double headingDegYZ();
+    double angleWith(PVector v);
+    double angleDegWith(PVector v);
+    double dot(PVector v);     // dot product
     PVector cross(PVector v);  // cross product
 };
 
