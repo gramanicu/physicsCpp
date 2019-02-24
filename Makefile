@@ -3,7 +3,7 @@
 CC = g++
 CFLAGS = -pedantic -Wextra -Wall
 EXE = physics
-SOURCES = physics.cpp points.cpp vectors.cpp
+SOURCES = physics.cpp Point.cpp PVector.cpp
 
 # Archive settings
 ANAME = PhysicsCpp.zip
