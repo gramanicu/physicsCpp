@@ -24,6 +24,7 @@ class Point {
     double getX();
     double getY();
     double getZ();
+    static double distance(Point p1, Point p2);
     double distance(Point p);
 };
 

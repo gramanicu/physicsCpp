@@ -37,6 +37,15 @@ class PVector : public Point {
         double angleDegWith(PVector v);
         double dot(PVector v);
         PVector cross(PVector v);
+
+        static PVector add(PVector v1, PVector v2);
+        static void add(PVector v1, PVector v2, PVector res);
+        static PVector substract(PVector v1, PVector v2);
+        static void substract(PVector v1, PVector v2, PVector res);
+        static PVector multiply(PVector v, double scale);
+        static PVector divide(PVector v, double scale);
+        static PVector cross(PVector v1, PVector v2);
+        static void cross(PVector v1, PVector v2, PVector res);
 };
 
 #endif

@@ -56,12 +56,13 @@ PVector PVector::divide(double scale) {
 }
 
 PVector PVector::divideNoLimit(double scale) {
+    PVector v;
     if (scale != 0) {
-        this->x = this->x / scale;
-        this->y = this->y / scale;
-        this->z = this->z / scale;
+        v.setX(this->x / scale);
+        v.setY(this->y / scale);
+        v.setZ(this->z / scale);
     }
-    return *this;
+    return v;
 }
 
 double PVector::magnitude() {
@@ -147,4 +148,56 @@ PVector PVector::limit(double limit) {
 
 double PVector::getLimit() {
     return this->maxMagnitude;
+}
+
+PVector::PVector add(PVector v1, PVector v2) {
+    PVector res;
+    res.setX(v1.getX() + v2.getX());
+    res.setX(v1.getX() + v2.getX());
+    res.setX(v1.getX() + v2.getX());
+    return res;
+}
+
+void PVector::add(PVector v1, PVector v2, PVector res) {
+    res.setX(v1.getX() + v2.getX());
+    res.setX(v1.getX() + v2.getX());
+    res.setX(v1.getX() + v2.getX());
+}
+
+PVector PVector::substract(PVector v1, PVector v2) {
+    PVector res;
+    res.setX(v1.getX() + v2.getX());
+    res.setX(v1.getX() + v2.getX());
+    res.setX(v1.getX() + v2.getX());
+    return res;
+}
+
+void PVector::substract(PVector v1, PVector v2, PVector res) {
+    res.setX(v1.getX() - v2.getX());
+    res.setX(v1.getX() - v2.getX());
+    res.setX(v1.getX() - v2.getX());
+}
+
+PVector PVector::multiply(PVector v, double scale) {
+    PVector res;
+    res.setXYZ(v.x * scale, v.y * scale, v.z * scale);
+    return res;
+}
+
+PVector PVector::divide(PVector v, double scale) {
+    PVector res;
+    if (scale != 0) {
+        res.setXYZ(v.x * scale, v.y * scale, v.z * scale);
+    }
+    return res;
+}
+
+
+PVector PVector::cross(PVector v1, PVector v2) {
+
+}
+
+
+void PVector::cross(PVector v1, PVector v2, PVector res) {
+
 }
