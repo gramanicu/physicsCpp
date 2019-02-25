@@ -194,10 +194,16 @@ PVector PVector::divide(PVector v, double scale) {
 
 
 PVector PVector::cross(PVector v1, PVector v2) {
-
+    PVector result;
+    result.setX(v1.y * v2.z - v1.z * v2.y);
+    result.setY(v1.z * v2.x - v1.x * v2.z);
+    result.setZ(v1.x * v2.y - v1.y * v2.x);
+    return result;
 }
 
 
 void PVector::cross(PVector v1, PVector v2, PVector res) {
-
+    res.setX(v1.y * v2.z - v1.z * v2.y);
+    res.setY(v1.z * v2.x - v1.x * v2.z);
+    res.setZ(v1.x * v2.y - v1.y * v2.x);
 }
