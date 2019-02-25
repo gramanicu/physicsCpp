@@ -25,6 +25,7 @@ PVector PVector::add(PVector v) {
     this->x = this->x + v.x;
     this->y = this->y + v.y;
     this->z = this->z + v.z;
+    this->limit();
     return *this;
 }
 
@@ -32,6 +33,7 @@ PVector PVector::substract(PVector v) {
     this->x = this->x - v.x;
     this->y = this->y - v.y;
     this->z = this->z - v.z;
+    this->limit();
     return *this;
 }
 
@@ -39,10 +41,21 @@ PVector PVector::multiply(double scale) {
     this->x = this->x * scale;
     this->y = this->y * scale;
     this->z = this->z * scale;
+    this->limit();
     return *this;
 }
 
 PVector PVector::divide(double scale) {
+    if (scale != 0) {
+        this->x = this->x / scale;
+        this->y = this->y / scale;
+        this->z = this->z / scale;
+    }
+    this->limit();
+    return *this;
+}
+
+PVector PVector::divideNoLimit(double scale) {
     if (scale != 0) {
         this->x = this->x / scale;
         this->y = this->y / scale;
@@ -115,4 +128,23 @@ PVector PVector::cross(PVector p) {
     result.setY(this->z * p.x - this->x * p.z);
     result.setZ(this->x * p.y - this->y * p.x);
     return result;
+}
+
+PVector PVector::limit() {
+    if(this->maxMagnitude!=-1) {
+        PVector aux = *this;
+        double toDivideWith = (aux.divideNoLimit(aux.maxMagnitude)).magnitude();
+        this->divideNoLimit(toDivideWith);
+    }
+    return *this;
+}
+
+PVector PVector::limit(double limit) {
+    this->maxMagnitude = limit;
+    this->limit();
+    return *this;
+}
+
+double PVector::getLimit() {
+    return this->maxMagnitude;
 }

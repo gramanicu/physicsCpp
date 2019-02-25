@@ -1,7 +1,6 @@
 // Copyright Grama Nicolae 2019
 #include <iostream>
 #include "../include/Physics.h"
-
 /*
 This tests multiple ways of initialising vectors, 
 and then delete the ones that need deletion
@@ -129,10 +128,52 @@ void testCrossFunction() {
 
 }
 
+/*
+This function is testing if the vectors have their magnitude
+limited. It should print:
+1.5 0 0
+1.5 0 0
+1.5 0 0
+3 0 0
+150 0 0
+151 1 1
+7550 50 50
+1.49993 0.00993334 0.00993334
+1.49993 0.00993334 0.00993334
+1.5 1.5
+*/
+void testLimitation() {
+    PVector *v = new PVector(3,0,0);
+    v->limit(1.5);
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+    v->multiply(2);
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+
+    v->limit(NOVLIMIT);
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+    v->multiply(2);
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+    v->multiply(50);
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+
+    v->add(PVector(1,1,1));
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+    v->multiply(50);
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+
+    v->limit(1.5);
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+    v->multiply(2);
+    std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
+    std::cout << v->magnitude() << " " << v->getLimit() << std::endl << std::endl;
+}
+
 int main() {
     testInitialization();
     testAngleFunctions();
     testSelfCalculation();
     testCrossFunction();
+    testLimitation();
+
     return 0;
 }
