@@ -9,7 +9,6 @@ class Point {
     double x;
     double y;
     double z;
-    // bool is3D; - to be implemented
 
    public:
     Point();
