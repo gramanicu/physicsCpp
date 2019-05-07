@@ -1,5 +1,7 @@
 # Physics C++
 
+[![Build Status](https://travis-ci.com/gramanicu/physicsCpp.svg?branch=master)](https://travis-ci.com/gramanicu/physicsCpp)
+
 This is a C++ project that focuses on implementing vectors and points, used in physics. It is based on a [processing tutorial](https://processing.org/tutorials/pvector/) by Daniel Shiffman.
 
 ## Point
