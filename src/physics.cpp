@@ -165,7 +165,7 @@ void testLimitation() {
     std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
     v->multiply(2);
     std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
-    std::cout << v->magnitude() << " " << v->getLimit() << std::endl << std::endl;
+    std::cout << v->magnitude() << " " << v->getLimit();
 }
 
 int main() {

@@ -2,3 +2,4 @@ Physics.zip
 Physics
 sources/*.o
 .vscode*
+output.txt

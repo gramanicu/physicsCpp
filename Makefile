@@ -23,7 +23,7 @@ build: $(OBJ)
 	$(info Compiling code...)
 	@$(CC) -o $(EXE) $^ $(CFLAGS) ||:
 	$(info Compilation successfull)
-	-@rm -f *.o ||:
+	-@rm -f $(OBJ) ||:
 	@$(MAKE) -s gitignore ||:
 
 %.o: %.cpp
@@ -31,11 +31,16 @@ build: $(OBJ)
 
 # Build & run
 run: build
-		@./$(EXE) ||:
+	@./$(EXE) > output.txt ||:
+
+# Test if the output is valid
+test: run
+	@if diff -qZ output.txt ref/reference.txt &>/dev/null ; then echo "Test result : PASSED" ;  else echo "Test result : FAILED"; fi ||:
+	@$(MAKE) -s clean ||:
 
 # Delete the executable
 clean:
-	if [ ! -f $(ANAME) ]; then rm -f $(EXE) $(OBJ) && echo "Deleted the binary & the object files"; else rm -f $(EXE) $(OBJ) $(ANAME) && echo "Deleted the binary, object files & the archive"; fi
+	if [ ! -f $(ANAME) ]; then rm -f $(EXE) $(OBJ) output.txt && echo "Deleted the binary & the object files"; else rm -f $(EXE) $(OBJ) $(ANAME) output.txt && echo "Deleted the binary, object files & the archive"; fi
 	
 # Archive the files
 pack: clean
@@ -56,5 +61,6 @@ gitignore:
 	@echo "$(ANAME)" > .gitignore ||:
 	@echo "$(EXE)" >> .gitignore ||:
 	@echo "sources/*.o" >> .gitignore ||:
-	@echo ".vscode*" >> .gitignore ||:	
+	@echo ".vscode*" >> .gitignore ||:
+	@echo "output.txt" >> .gitignore ||:
 	echo "Updated .gitignore"
