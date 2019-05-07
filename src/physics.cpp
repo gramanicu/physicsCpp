@@ -107,16 +107,22 @@ void testCrossFunction() {
     PVector *v2 = new PVector(1,0,0);
     PVector v3 = v1->cross(*v2);
     std::cout << v3.getX() << " " << v3.getY() << " " << v3.getZ() << std::endl;
+    delete v1;
+    delete v2;
 
     v1 = new PVector(2,3,4);
     v2 = new PVector(5,6,7);
     v3 = v1->cross(*v2);
     std::cout << v3.getX() << " " << v3.getY() << " " << v3.getZ() << std::endl;
+    delete v1;
+    delete v2;
 
     v1 = new PVector(3,0,0);
     v2 = new PVector(0,4,0);
     v3 = v1->cross(*v2);
     std::cout << v3.getX() << " " << v3.getY() << " " << v3.getZ() << std::endl;
+    delete v1;
+    delete v2;
 
     v1 = new PVector(-1,-2,3);
     v2 = new PVector(4,0,-8);
@@ -165,7 +171,9 @@ void testLimitation() {
     std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
     v->multiply(2);
     std::cout << v->getX() << " " << v->getY() << " " << v->getZ() << std::endl;
-    std::cout << v->magnitude() << " " << v->getLimit();
+    std::cout << v->magnitude() << " " << v->getLimit() << std::endl;
+
+    delete v;
 }
 
 int main() {
