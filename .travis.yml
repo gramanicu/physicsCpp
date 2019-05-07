@@ -1,2 +1,2 @@
-language: C++
+language: cpp
 script: make && make run
