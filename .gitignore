@@ -1,2 +1,4 @@
-physics
-.vscode
+Physics.zip
+Physics
+sources/*.o
+.vscode*

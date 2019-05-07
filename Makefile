@@ -1,9 +1,13 @@
 # Copyright 2019 Grama Nicolae
 
+.PHONY: gitignore clean memory beauty pack run
+.SILENT: beauty pack clean memory gitignore
+
 CC = g++
-CFLAGS = -pedantic -Wextra -Wall
-EXE = physics
-SOURCES = src/physics.cpp include/Physics/Point.cpp include/Physics/PVector.cpp
+CFLAGS = -Wall -Wextra -pedantic -g -O3 -std=c++11
+EXE = Physics
+SRC = src/physics.cpp include/Physics/Point.cpp include/Physics/PVector.cpp
+OBJ = $(SRC:.cpp=.o)
 
 # Archive settings
 ANAME = Physics.zip
@@ -12,33 +16,45 @@ AFLAGS = -FSr
 
 # Coding style settings
 
-CSFILES = *.cpp *.h
+CSFILES = */*.cpp */*.h */*/*.cpp */*/*.h
 
-# Compile the program
-build: $(SOURCES)
-		$(CC) -o $(EXE) $^ $(CFLAGS)
+# Compiles the program
+build: $(OBJ)
+	$(info Compiling code...)
+	@$(CC) -o $(EXE) $^ $(CFLAGS) ||:
+	$(info Compilation successfull)
+	-@rm -f *.o ||:
+	@$(MAKE) -s gitignore ||:
+
+%.o: %.cpp
+	@$(CC) -o $@ -c $< $(CFLAGS) ||:
 
 # Build & run
 run: build
-		./$(EXE)
+		@./$(EXE) ||:
 
 # Delete the executable
 clean:
-	rm -f $(EXE)
-	rm -f $(ANAME)
-
-.PHONY:clean
-
+	if [ ! -f $(ANAME) ]; then rm -f $(EXE) $(OBJ) && echo "Deleted the binary & the object files"; else rm -f $(EXE) $(OBJ) $(ANAME) && echo "Deleted the binary, object files & the archive"; fi
+	
 # Archive the files
 pack: clean
-	zip $(AFLAGS) $(ANAME) $(ACONTENTS) 
-	
-.PHONY:pack
+	zip $(AFLAGS) $(ANAME) $(ACONTENTS)
 
 # Styles the code, with google's standard. The only difference is
 # that it uses 4 spaces instead of two for "tabs"
 beauty: 
 	clang-format -i -style=file $(CSFILES)
 
-.PHONY:beauty
+# Checks the memory for leaks
+MFLAGS = --leak-check=full --show-leak-kinds=all --track-origins=yes
+memory:build
+	valgrind $(MFLAGS) ./$(EXE)
 
+# Adds and updates gitignore rules
+gitignore:
+	@echo "$(ANAME)" > .gitignore ||:
+	@echo "$(EXE)" >> .gitignore ||:
+	@echo "sources/*.o" >> .gitignore ||:
+	@echo ".vscode*" >> .gitignore ||:	
+	echo "Updated .gitignore"
