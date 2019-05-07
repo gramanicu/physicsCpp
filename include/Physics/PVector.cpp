@@ -150,7 +150,7 @@ double PVector::getLimit() {
     return this->maxMagnitude;
 }
 
-PVector::PVector add(PVector v1, PVector v2) {
+PVector PVector::add(PVector v1, PVector v2) {
     PVector res;
     res.setX(v1.getX() + v2.getX());
     res.setX(v1.getX() + v2.getX());
