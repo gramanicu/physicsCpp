@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c4c95b607ad4aec9757e1a4d59f8e5e)](https://app.codacy.com/app/gramanicu/physicsCpp?utm_source=github.com&utm_medium=referral&utm_content=gramanicu/physicsCpp&utm_campaign=Badge_Grade_Dashboard)
 # Physics C++ &middot; [![Build Status](https://travis-ci.com/gramanicu/physicsCpp.svg?branch=master)](https://travis-ci.com/gramanicu/physicsCpp) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is a C++ project that focuses on implementing vectors and points, used in physics. It is based on a [processing tutorial](https://processing.org/tutorials/pvector/) by Daniel Shiffman.
