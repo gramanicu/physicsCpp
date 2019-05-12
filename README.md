@@ -78,19 +78,19 @@ Any method that changes the object that is calling it **will** check if the new 
 
 The `divide()` method _will avoid division with 0_, even if it isn't so much of a problem with variables of the `double` type.
 
-**`void magnitude()`**
+#### `void magnitude()`
 
 To calculate the **magnitude** of a vector, the **_following formula_** is used:
 
 ![alt text](./images/magnitudeFormula.png "Magnitude Formula")
 
-**`double dot(PVector, PVector v)`**
+#### `double dot(PVector, PVector v)`
 
 To calculate the **dot product** ( _scalar product_ ) of two vectors, the **_following formula_** is used:
 
 ![alt text](./images/dotFormula.png "Scalar Product Formula")
 
-**`void cross(PVector, PVector)`**
+#### `void cross(PVector, PVector)`
 
 To calculate the **cross product** ( _vectorial product_ ) of two vectors, the **cross product formula** couldn't be used
 
@@ -100,13 +100,13 @@ So, the **scalar components ( x, y, z )** need to be calculated _one by one_ wit
 
 ![alt text](./images/crossFormula.png "Vectorial Product Formula")
 
-**`void normalize()`**
+#### `void normalize()`
 
 To _normalize_ the vector (**give him a magnitude of 1**), he is divided by his own magnitude.
 
 A similar method is used to give any vector a specific magnitude ( _it is divided with his magnitude divided by the desired magnitude_ ).
 
-**`double heading..()`**
+##### `double heading..()`
 
 Calculates **angles** (_of one vector_), in reference to **any** plane, using the following formula:
 
@@ -114,7 +114,7 @@ Calculates **angles** (_of one vector_), in reference to **any** plane, using th
 
 To find the angle in degrees, the angle in radians is **multiplied with 180 and divided by PI** ( _`M_PI` = 3.14159265358979323846_ )
 
-**`double angleWith(PVector, PVector)`**
+#### `double angleWith(PVector, PVector)`
 
 Calculates the **angle between two vectors**, using the following formula
 
