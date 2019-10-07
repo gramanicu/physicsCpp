@@ -41,36 +41,36 @@ However, the `PVector` class has a lot of new methods, created to do operations 
 
 All **non-static methods** that return a `PVector` are changing the `PVector` object that is **calling them** & they return a copy of it.
 
--   `PVector add(PVector v)` - add a vector to the current one
--   `PVector subtract(PVector v)` - subtracts a vector from the current one
--   `PVector multiply(double scale)` - multiplies the vector with a scalar
--   `PVector divide(double scale)`- divides the vector with a scalar
--   `double distance(PVector v)` - calculates the distance between the current vector and another one
--   `double magnitude()`- calculates the length of the vector ( or '**magnitude**' )
--   `double getLimit()` - returns the vectors limit ( or '`maximum magnitude`' )
--   `PVector normalize()` - **normalises** the vector ( the magnitude will be 1 )
--   `PVector limit()` - assures that the vector magnitude is less than the `maxMagnitude`
--   `PVector limit(double max)` - sets the max magnitude attribute
--   `double headingXY()` - determines the vector orientation in the **XY** plane ( respectively, **XZ** & **YZ** plane ), in radians
--   `double headingDegXY()` - determines the vector orientation in the **XY** plane ( respectively, **XZ** & **YZ** plane ), in degrees
--   `double angleWith(PVector v)` - calculates the angle between the current vector and another one, in radians
--   `double angleDegWith(PVector v)` - calculates the angle between the current vector and another one, in degrees
--   `double dot(PVector v)` - calculates the 'dot' ( **_scalar_** ) product between the current vector and another one
--   `PVector cross(PVector v)` - calculates the 'cross' ( _**vectorial**_ ) product between the current vector and another one
--   `PVector divideNoLimit(double scale)` - divides the vector with a scalar _( this method is private, and it is used because it ignores the limit/maxMagnitude. The limit method needs to divide the vector, and the program would have entered a loop without this kind of function )_.
+- `PVector add(PVector v)` - add a vector to the current one
+- `PVector subtract(PVector v)` - subtracts a vector from the current one
+- `PVector multiply(double scale)` - multiplies the vector with a scalar
+- `PVector divide(double scale)`- divides the vector with a scalar
+- `double distance(PVector v)` - calculates the distance between the current vector and another one
+- `double magnitude()`- calculates the length of the vector ( or '**magnitude**' )
+- `double getLimit()` - returns the vectors limit ( or '`maximum magnitude`' )
+- `PVector normalize()` - **normalises** the vector ( the magnitude will be 1 )
+- `PVector limit()` - assures that the vector magnitude is less than the `maxMagnitude`
+- `PVector limit(double max)` - sets the max magnitude attribute
+- `double headingXY()` - determines the vector orientation in the **XY** plane ( respectively, **XZ** & **YZ** plane ), in radians
+- `double headingDegXY()` - determines the vector orientation in the **XY** plane ( respectively, **XZ** & **YZ** plane ), in degrees
+- `double angleWith(PVector v)` - calculates the angle between the current vector and another one, in radians
+- `double angleDegWith(PVector v)` - calculates the angle between the current vector and another one, in degrees
+- `double dot(PVector v)` - calculates the 'dot' ( **_scalar_** ) product between the current vector and another one
+- `PVector cross(PVector v)` - calculates the 'cross' ( _**vectorial**_ ) product between the current vector and another one
+- `PVector divideNoLimit(double scale)` - divides the vector with a scalar _( this method is private, and it is used because it ignores the limit/maxMagnitude. The limit method needs to divide the vector, and the program would have entered a loop without this kind of function )_.
 
 To ensure that the `PVector` object is not changed, the _static methods **must** be used_.
 
 **The following** static methods have **overloads**. If it has two arguments, the **first one** will be the **result** of the operation. If it has three arguments, the last will be the result.
 
--   `add`
--   `subtract`
--   `cross`
+- `add`
+- `subtract`
+- `cross`
 
 The next are **not** overloaded, the `PVector` argument being the `PVector` returned:
 
--   `multiply`
--   `divide`
+- `multiply`
+- `divide`
 
 ### PVectors.cpp - a few important notes
 
